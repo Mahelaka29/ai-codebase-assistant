@@ -1,0 +1,22 @@
+AI-Codebase-Assistant/
+│
+├── app.py
+├── requirements.txt
+├── .env
+├── README.md
+├── .gitignore
+│
+├── uploads/
+├── temp/
+├── assets/
+│
+└── utils/
+    ├── __init__.py
+    ├── zip_loader.py
+    ├── parser.py
+    ├── chunker.py
+    ├── embeddings.py
+    ├── vector_store.py
+    ├── gemini.py
+    ├── chat.py
+    └── constants.py
