@@ -1,8 +1,8 @@
 streamlit
 google-generativeai
 python-dotenv
-sentence-transformers
+sentence-transformers==3.0.1
+transformers==4.41.2
 faiss-cpu
 numpy
 PyMuPDF
-torchvision
