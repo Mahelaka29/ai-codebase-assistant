@@ -10,9 +10,6 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# Streamlit
-.streamlit/
-
 # Temporary Files
 temp/
 uploads/
