@@ -136,18 +136,6 @@ Metadata-related questions are answered locally without invoking the language mo
 
 ---
 
-## Screenshots
-
-Add screenshots of:
-
-- Home page
-- ZIP upload interface
-- Chat interface
-- Project overview
-- Code viewer
-
----
-
 ## Future Improvements
 
 - GitHub repository import
