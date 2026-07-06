@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 from utils.zip_loader import extract_zip
 from utils.parser import read_code_files
@@ -23,16 +24,63 @@ def load_css():
         )
 
 
-st.set_page_config(
-    page_title="AI Codebase Assistant",
-    page_icon="💻",
-    layout="wide"
-)
+def render_upload_onboarding():
+    st.markdown(
+        """
+        <div class="upload-onboarding-card">
+            <h3>📦 Upload a Project to Get Started</h3>
+            <ol>
+                <li>Tap the <span class="sidebar-hint">☰ sidebar button</span> in the top-left.</li>
+                <li>Upload your ZIP project.</li>
+                <li>Wait for indexing.</li>
+                <li>Start asking questions.</li>
+            </ol>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-load_css()
+    components.html(
+        """
+        <div class="open-sidebar-wrap">
+            <button id="open-sidebar-btn" type="button">Open Sidebar ↑</button>
+        </div>
+        <script>
+            document.getElementById("open-sidebar-btn").addEventListener("click", function () {
+                const doc = window.parent.document;
+                const selectors = [
+                    '[data-testid="stSidebarCollapsedControl"]',
+                    '[data-testid="collapsedControl"]',
+                    'button[kind="headerNoPadding"]'
+                ];
+                for (const selector of selectors) {
+                    const control = doc.querySelector(selector);
+                    if (control) {
+                        control.click();
+                        return;
+                    }
+                }
+            });
+        </script>
+        """,
+        height=56,
+    )
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+if "has_uploaded_project" not in st.session_state:
+    st.session_state.has_uploaded_project = False
+
+st.set_page_config(
+    page_title="AI Codebase Assistant",
+    page_icon="💻",
+    layout="wide",
+    initial_sidebar_state="auto" if st.session_state.has_uploaded_project else "expanded",
+)
+
+load_css()
 
 st.title("AI Codebase Assistant")
 
@@ -60,6 +108,8 @@ with st.sidebar:
 # ================= Main =================
 
 if uploaded_zip:
+
+    st.session_state.has_uploaded_project = True
 
     extract_path = extract_zip(uploaded_zip)
 
@@ -251,6 +301,8 @@ if uploaded_zip:
                     show_source_code(code_files, source)
 
 else:
+
+    render_upload_onboarding()
 
     st.markdown(
 """

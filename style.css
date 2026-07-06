@@ -36,3 +36,71 @@ hr {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+.upload-onboarding-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #161616 100%);
+    border: 1px solid #3d5a80;
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.upload-onboarding-card h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    color: #f0f0f0;
+}
+
+.upload-onboarding-card ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: #c8c8c8;
+    line-height: 1.7;
+}
+
+.upload-onboarding-card li {
+    margin-bottom: 0.35rem;
+}
+
+.upload-onboarding-card .sidebar-hint {
+    color: #8ab4f8;
+    font-weight: 600;
+}
+
+.open-sidebar-wrap {
+    margin-bottom: 1.5rem;
+}
+
+#open-sidebar-btn {
+    background: #3d5a80;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.65rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    max-width: 280px;
+    font-family: inherit;
+}
+
+#open-sidebar-btn:hover {
+    background: #4a6fa5;
+}
+
+@media (max-width: 768px) {
+    .upload-onboarding-card {
+        padding: 1.25rem 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .upload-onboarding-card h3 {
+        font-size: 1.1rem;
+    }
+
+    #open-sidebar-btn {
+        max-width: 100%;
+    }
+}
